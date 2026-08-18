@@ -36,13 +36,13 @@ This project aims to create a playable single-player Blackjack game on the Intel
 
 ### System Block Diagram
 
-![System Block Diagram](images/system_block_diagram.jpeg)
+![System Block Diagram](Images/system_block_diagram.jpeg)
 
 The system consists of three independent modules connected through the top-level integration file `blackjack_top.v`. The Game FSM acts as the central controller generating signals that sequence the card and display module. All modules share the 50MHz system clock and active-low reset signal.
 
 ### FSM State Diagram
 
-![FSM State Diagram](images/fsm_diagram.jpeg)
+![FSM State Diagram](Images/fsm_diagram.jpeg)
 
 The game is controlled by a finite state machine with five states. Outputs depend only on the current state and not on the inputs. This ensures stable, glitch-free output signals. An asynchronous active-low reset returns the FSM to IDLE from any state immediately on KEY[3] being pressed.
 
@@ -254,7 +254,7 @@ Each module was verified independently using a self-checking testbench before in
 
 ### Simulation Transcript
 
-![Testbench Results](images/simulation_test.jpeg)
+![Testbench Results](Images/simulation_test.jpeg)
 
 All 14 FSM verification checks passed successfully in ModelSim Intel FPGA Starter Edition 2020.1.
 
@@ -280,9 +280,9 @@ Each FSM state was verified physically by observing HEX0 (7-segment display show
 
 ### Hardware photos
 
-![Board showing IDLE state](images/hardware_idle.jpeg)
-![Board showing PLAYER_TURN state](images/hardware_player_turn.jpeg)
-![Board showing RESULT state](images/hardware_result.jpeg)
+![Board showing IDLE state](Images/hardware_idle.jpeg)
+![Board showing PLAYER_TURN state](Images/hardware_player_turn.jpeg)
+![Board showing RESULT state](Images/hardware_result.jpeg)
 
 ## Integration Log and Bug Fixes
 **Author: Muhammad Ayan Tariq**
