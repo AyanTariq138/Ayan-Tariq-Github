@@ -34,7 +34,7 @@ under unloaded bench-top conditions.
 - CAD design of modular elbow and wrist assemblies
 - Anthropometric sizing (5th percentile female to 95th percentile male)
 - Actuator torque and speed calculation, and motor selection
-- Arduino firmware development in C++
+- Arduino control firmware
 - Closed-loop PD position control with encoder feedback
 - Multi-layer software safety logic
 - Prototype manufacture, assembly and commissioning
@@ -54,7 +54,7 @@ The firmware implements:
 - motion timeout detection for stall and obstruction
 - direction verification against commanded motor polarity
 - software emergency stop requiring manual reset
-- CSV serial data logging at approximately 50 ms intervals
+- serial data logging at approximately 50 ms intervals
 
 ---
 
@@ -74,7 +74,7 @@ measured with a manual protractor before closed-loop testing began.
 
 Residual error is attributed to gearbox friction and the voltage drop of
 the temporary L298N driver, which left insufficient torque authority near
-the setpoint. Raw logs and tracking plots are in `results/`.
+the setpoint. Raw serial logs from each bench test are in the Data folder.
 
 ---
 
@@ -94,15 +94,14 @@ This is a proof-of-concept prototype and was not clinically tested.
 
 | Folder | Contents |
 |---|---|
-| `firmware/` | Arduino control firmware |
-| `cad/` | STEP assemblies and technical drawings |
-| `results/` | Experimental CSV data and tracking plots |
-| `images/` | Prototype photographs and system diagrams |
-| `docs/` | Two-page project summary |
+| [Firmware](Firmware) | Arduino control code |
+| [CAD & Drawings](CAD & Drawings) | STEP assemblies and technical drawings (elbow and wrist) |
+| [Data](Data) | Raw serial test logs (Excel) |
+| [Images_Arm_Exoskeleton](Images_Arm_Exoskeleton) | Prototype photographs and system diagrams |
 
 ---
 
 ## Author
 
-**Muhammad Ayan Tariq**
+*Muhammad Ayan Tariq*
 MSc Mechatronics & Robotics Engineering, University of Leeds
