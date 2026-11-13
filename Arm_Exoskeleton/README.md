@@ -93,7 +93,7 @@ This is a proof-of-concept prototype and was not clinically tested.
 | Folder | Contents |
 |---|---|
 | [Firmware](Firmware) | Arduino control code |
-| [CAD & Drawings](CAD & Drawings) | STEP assemblies and technical drawings (elbow and wrist) |
+| [CAD & Drawings](CAD%20%26%20Drawings) | STEP assemblies and technical drawings (elbow and wrist) |
 | [Data](Data) | Raw serial test logs (Excel) |
 | [Images_Arm_Exoskeleton](Images_Arm_Exoskeleton) | Prototype photographs and system diagrams |
 
