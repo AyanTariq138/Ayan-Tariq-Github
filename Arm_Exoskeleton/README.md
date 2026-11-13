@@ -51,8 +51,6 @@ The firmware implements:
 - PD closed-loop position control
 - velocity-limited setpoint ramping
 - software range-of-motion protection with latched fault state
-- motion timeout detection for stall and obstruction
-- direction verification against commanded motor polarity
 - software emergency stop requiring manual reset
 - serial data logging at approximately 50 ms intervals
 
@@ -104,4 +102,5 @@ This is a proof-of-concept prototype and was not clinically tested.
 ## Author
 
 *Muhammad Ayan Tariq*
+BEng Mechanical Engineering, University of Warwick
 MSc Mechatronics & Robotics Engineering, University of Leeds
