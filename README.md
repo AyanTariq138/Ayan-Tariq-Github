@@ -16,3 +16,4 @@ BEng (Hons) Mechanical Engineering, University of Warwick
 ## Contact
 
 [LinkedIn](https://www.linkedin.com/in/muhammad-ayan-tariq-229143260/)
+[Outlook](mailto:m.ayan.tariq@outlook.com)
