@@ -1,6 +1,4 @@
-# ELEC5566M Mini-Project Repository
-
-# ELEC5566M Mini-Project FPGA Blackjack
+# FPGA Blackjack Game (ELEC5566M, University of Leeds)
 
 ## Project Overview
 
