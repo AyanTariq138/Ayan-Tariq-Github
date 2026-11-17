@@ -43,7 +43,7 @@ yoke on cost, simplicity and flexibility. The rule is deliberately simple:
   in Fusion 360
 - 3D printing and laser cutting of all mechanical parts
 - Voltage-divider circuit design for FSR readout on the Arduino ADC
-- Rule-based control firmware in C, halting each actuator on force threshold
+- Arduino control firmware using a simple force-threshold rule, halting each actuator on contact
 - Serial-monitor and serial-plotter validation of the force response
 - Design of an irregular boundary to test alignment across many geometries
 
@@ -81,9 +81,9 @@ spike on contact that triggers the halt.
 | Three-point synchronised contact on the irregular boundary | Demonstrated |
 | Alignment held across varied boundary orientations | Demonstrated |
 
-The core principle — actuators working in harmony under force feedback to
-hold alignment against an irregular boundary — was validated. Serial-plotter
-traces of the FSR values are in `results/`.
+The core principle, which is actuators working in harmony under force feedback to
+hold alignment against an irregular boundary, was validated. The
+serial-plotter trace of the FSR values is shown above.
 
 ---
 
@@ -107,6 +107,8 @@ tunnelling machine.
 ## Repository structure
 
 | Folder | Contents |
+|---|---|
+| [IMAGES](IMAGES) | Prototype photo, circuit diagram and force-sensor readings |
 |---|---|
 | `firmware/` | Arduino rule-based control code |
 | `cad/` | Fusion 360 parts and STEP exports (servo holder, rack, pinion, boundary) |
