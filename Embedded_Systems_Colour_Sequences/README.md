@@ -1,4 +1,4 @@
-# ELEC5620M Mini-Project Repository
+# Colour Sequence Memory Game (ELEC5620M, University of Leeds)
 
 ## Project Overview
 
@@ -129,7 +129,7 @@ The game uses a 6-state FSM implemented in `game_update()`:
 **Author: Ayan Tariq**
 
 The system was designed with a clear separation between game logic and hardware interaction to improve testability and maintainability. The `game_update()` function operates purely on input flags such as `show_done`, `timed_out`, and `button_pressed`, rather than directly accessing hardware, allowing the full state machine to be tested independently on a PC environment before deployment. 
-All game-related variables, including score, lives, sequence, state, and difficulty, are encapsulated within a single `GameData` struct, simplifying function interfaces and making future extensions easier to implement. A dual-display approach was used to enhance user experience, where the VGA output handles dynamic gameplay visuals such as colour sequences and animations, while the LT24 provides a persistent heads-up display showing key information like score, high score, lives, and current state. Additionally, debug variables such as `dbg_state`, `dbg_lives`, `dbg_score`, and `dbg_seqlen` are declared as `volatile` to prevent compiler optimisation from removing them, ensuring they remain accessible in the ARM Development Studio debugger for effective runtime inspection.
+All game-related variables, including score, lives, sequence, state, and difficulty, are encapsulated within a single `GameData` struct, simplifying function interfaces and making future extensions easier to implement.The LT24 LCD displays the gameplay and colour sequences, while the 7-segment displays and LEDs show the score and lives. Additionally, debug variables such as `dbg_state`, `dbg_lives`, `dbg_score`, and `dbg_seqlen` are declared as `volatile` to prevent compiler optimisation from removing them, ensuring they remain accessible in the ARM Development Studio debugger for effective runtime inspection.
 
 ## Functional Code
 
@@ -156,9 +156,9 @@ This function returns the flash duration in milliseconds and is the mechanism fo
 The game_update() function is the core of the entire project. It is called every iteration of the main loop and implements the full six-state FSM using a switch statement on the current state. It receives the button pressed, a show_done flag from the display module, and a timed_out flag from the timer module. This decoupling was a deliberate design decision that allowed the function to be tested completely on a PC before any hardware was involved.
 The most complex state is STATE_INPUT, which handles input validation. When a button is pressed, it is compared against the expected colour at the current player index. A correct press advances the index, and when the index reaches the sequence length the round is complete. The score increments, the high score updates if beaten, and the game moves to STATE_LEVEL. A wrong press immediately deducts a life. A timeout also deducts a life. Critically, the timeout check occurs before the button check with an explicit break, meaning a timeout always takes priority over a simultaneous button press. This prevents edge cases where both events occur in the same loop iteration.
 
-###Display Rendering(Hero Okoro)
+### Display Rendering(Hero Okoro)
 Specifically, designed the module interface in display.h and implemented the hardware initialisation and rendering logic, based on the already provided example display logic.
-This is done using the display.h and diplay.c files. My code initialises the LT24 display, configures the required FPGA PIO connections, clears the screen, and renders the difficulty-selection UI using four coloured quadrants based on the current game state.
+This is done using the display.h and display.c files. My code initialises the LT24 display, configures the required FPGA PIO connections, clears the screen, and renders the difficulty-selection UI using four coloured quadrants based on the current game state.
 
 
 
@@ -222,7 +222,7 @@ volatile int dbg_lives = 0;
 
 **Expected:** `g->current_state = STATE_LEVEL` runs inside sequence completion block only.  
 **Actual:** Missing braces meant the state change ran on every correct button press regardless of high score condition.  
-**Cause:** Codeindentation appeared correct but braces were missing around the if block.  
+**Cause:** Code indentation appeared correct but braces were missing around the if block.  
 **Fix:**
 ```c
 // Before
@@ -338,6 +338,6 @@ HEX4–HEX5 updated after player beats their previous best score across game ses
 ![High Score](images/07_High_score.jpg)
 
 ## Conclusion
-The Colour Sequence game was successfully implemented and verified on the DE1-SoC development board. The modular sense-process-actuate architecture enabled each component to be developed and tested independently before integration, significantly reducing debugging time on hardware. All seven logic tests and ten score output unit tests passed on the PC host environment, and all thirteen hardware integration tests passed on the physical board.
+The Colour Sequence game was successfully implemented and verified on the DE1-SoC development board. The modular sense-process-actuate architecture enabled each component to be developed and tested independently before integration, significantly reducing debugging time on hardware. All seven logic tests on the PC host environment, and all thirteen hardware integration tests passed on the physical board.
 
 The most significant integration challenges encountered were the bootloader initialisation requirement for DDR memory access, button edge detection conflicts, the `STATE_LEVEL` sequence display race condition, and difficulty timing calibration. Each was systematically identified using the ARM Development Studio debugger and resolved with targeted fixes. The final system operates reliably across all three difficulty levels and correctly tracks lives, score, and high score across multiple game sessions.
