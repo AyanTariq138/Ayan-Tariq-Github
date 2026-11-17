@@ -109,13 +109,6 @@ tunnelling machine.
 | Folder | Contents |
 |---|---|
 | [IMAGES](IMAGES) | Prototype photo, circuit diagram and force-sensor readings |
-|---|---|
-| `firmware/` | Arduino rule-based control code |
-| `cad/` | Fusion 360 parts and STEP exports (servo holder, rack, pinion, boundary) |
-| `results/` | Serial-monitor logs and serial-plotter traces |
-| `images/` | Prototype photographs and circuit diagrams |
-| `docs/` | Two-page project summary |
-
 ---
 
 ## Author
