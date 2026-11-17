@@ -402,18 +402,23 @@ Button edge detection was not implemented in the initial design. Without it, a s
 
 The game result is encoded as:
 
-- `2'b01` → Player Win
-- `2'b00` → Player Loss
-- `2'b10` → Draw (Push)
+- 2'b00 → Player Win
+- 2'b01 → Player Loss (dealer wins)
+- 2'b10 → Draw (Push)
 
 During integration, the display module initially did not handle the draw condition, resulting in no visual output for tied scores. This was resolved by adding a dedicated rendering block in `LT24Top.v` to display "TIE" when `result_code == 2'b10`. Additionally, a syntax issue caused by missing `begin/end` in the pixel generator always block was fixed.
 
-![Player wins - LCD showing Win](Images\win_score.jpeg)
-![Player wins - Display showing Win](Images\win_display.jpeg)
-![Dealer wins - LCD showing Loss](Images\loss_score.jpeg)
-![Dealer wins - Display showing Loss](Images\loss_display.jpeg)
-![Draw - LCD showing Draw](Images\draw_score.jpeg)
-![Draw - Display showing Draw](Images\draw_display.jpeg)
+![Player wins - LCD showing Win](Images/win_score.jpeg)
+
+![Player wins - Display showing Win](Images/win_display.jpeg)
+
+![Dealer wins - LCD showing Loss](Images/loss_score.jpeg)
+
+![Dealer wins - Display showing Loss](Images/loss_display.jpeg)
+
+![Draw - LCD showing Draw](Images/draw_score.jpeg)
+
+![Draw - Display showing Draw](Images/draw_display.jpeg)
 
 ## Future Improvements
 
