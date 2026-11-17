@@ -1,4 +1,4 @@
-# Muhammad Ayan Tariq — Engineering Portfolio
+# Muhammad Ayan Tariq - Engineering Portfolio
 
 MSc Mechatronics & Robotics Engineering, University of Leeds
 
